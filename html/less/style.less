@@ -1,0 +1,163 @@
+@theme:   #333;
+@line:    #999;
+@radius:  4px;
+
+.font {
+  font-family: 'Maven Pro', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.25px;
+}
+
+* {
+  font-size: 12px;
+  .font;
+}
+
+body {
+  padding: 0;
+  background: @theme;
+  color: #fff;
+
+  h1, h2, h3 {
+    margin: 0;
+    font-weight: 700;
+    .font;
+  }
+
+  h1 {
+    margin-bottom: 16px;
+    font-size: 12px;
+  }
+
+  h2 {
+    margin-bottom: 8px;
+    font-size: 10px;
+    font-weight: normal;
+  }
+
+  a {
+    color: @line;
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  pre {
+    text-transform: none;
+  }
+
+  input {
+    padding: 0;
+    background: none;
+    border: none;
+    width: 32px;
+    text-align: center;
+  }
+
+  .btn {
+    .font;
+    .smooth;
+    &.btn-default {
+      background: none;
+      color: #fff;
+      border-color: @line;
+      font-size: 12px;
+      border-radius: @radius;
+      &:hover {
+        color: @theme;
+        background: #fff;
+      }
+    }
+  }
+
+  .pulse {
+    -webkit-animation: pulse 500ms infinite;
+  }
+
+  .flash {
+    -webkit-animation: flash 250ms 1;
+  }
+
+  .block {
+    background: rgba(255, 255, 255, 0.025);
+    padding: 8px;
+    .smooth;
+    &:hover {
+      background: rgba(255, 255, 255, 0.075);
+    }
+  }
+
+  .numbers {
+    span {
+      display: inline-block;
+      width: 8px;
+      text-align: right;
+      &.large {
+        width: 32px;
+      }
+      &.separator {
+        width: 4px;
+      }
+    }
+  }
+
+  .smooth {
+    transition: all 100ms linear;
+  }
+
+  .area {
+    position: relative;
+    margin: 0 0 1px 0;
+    padding: 12px 8px 8px 8px;
+    .block;
+    ul.tracks {
+      display: block;
+      padding: 0;
+      >li{
+        display: inline-block;
+        margin: 0 4px 0 0;
+        padding: 4px;
+        width: 128px;
+        text-align: center;
+        border-radius: 3px;
+        .block;
+        ul.clips {
+          display: block;
+          padding: 0;
+          >li {
+            display: inline-block;
+            margin: 0 4px 4px 0;
+            width: 100%;
+            text-align: center;
+            border: 1px solid transparent;
+            .block;
+            &.active {
+              border: 1px solid #fff;
+            }
+          }
+        }
+      }
+    }
+    ul.items {
+      padding: 0;
+      li {
+        display: inline-block;
+      }
+    }
+    .scroller {
+      overflow: hidden;
+      height: 320px;
+    }
+  }
+}
+
+@-webkit-keyframes flash {
+  0%   { background-color: rgba(255, 255, 255, 1.00); }
+  100% { background-color: rgba(255, 255, 255, 0.00); }
+}
+
+@-webkit-keyframes pulse {
+  0%   { -webkit-transform: scale(0.85, 0.85); }
+  50%  { -webkit-transform: scale(1.00, 1.00); }
+  100% { -webkit-transform: scale(0.85, 0.85); }
+}
